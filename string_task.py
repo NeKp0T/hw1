@@ -1,3 +1,5 @@
+
+
 # Given a string, if its length is at least 3,
 # add 'ing' to its end.
 # Unless it already ends in 'ing', in which case
@@ -26,7 +28,7 @@ def verbing(s):
 def not_bad(s):
     not_pos = s.find('not')
     bad_pos = s.find('bad')
-    if  not_pos != -1  and bad_pos != -1 and not_pos < bad_pos:
+    if not_pos != -1 and bad_pos != -1 and not_pos < bad_pos:
         return s[:not_pos] + 'good' + s[bad_pos + 3:]
     return s
 
@@ -44,6 +46,7 @@ def not_bad(s):
 def str_divider(s):
     half_len = (len(s) + 1) // 2
     return (s[:half_len], s[half_len:])
+
 
 def front_back(a, b):
     a_halves = str_divider(a)

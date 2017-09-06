@@ -31,6 +31,7 @@ print_words() and print_top().
 
 import sys
 
+
 def read_words(filename):
     words = []
     with open(filename, "r") as f:
@@ -38,12 +39,29 @@ def read_words(filename):
             words.extend(line.split())
     return words
 
+
 # Define print_words(filename) and print_top(filename) functions.
 # You could write a helper utility function that reads a file
 # and builds and returns a word/count dict for it.
 # Then print_words() and print_top() can just call the utility function.
 
 ###
+
+def get_words(words):
+    d = dict.fromkeys(words, 0)
+    for i in words:
+        d[i] += 1
+    return list(d.items())
+
+
+def print_words(filename):
+    print(*sorted(get_words(read_words(filename))), sep='\n')
+
+
+def print_top(filename, quantity=20):
+    print(*sorted(get_words(read_words(filename)),
+                  key=lambda x: -x[1])[:quantity], sep='\n')
+
 
 # This basic command line argument parsing code is provided and
 # calls the print_words() and print_top() functions which you must define.
@@ -61,6 +79,7 @@ def main():
     else:
         print('unknown option: ' + option)
         sys.exit(1)
+
 
 if __name__ == '__main__':
     main()
