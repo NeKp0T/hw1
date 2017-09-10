@@ -28,7 +28,7 @@ def verbing(s):
 def not_bad(s):
     not_pos = s.find('not')
     bad_pos = s.find('bad')
-    if not_pos != -1 and bad_pos != -1 and not_pos < bad_pos:
+    if -1 < not_pos < bad_pos:
         return s[:not_pos] + 'good' + s[bad_pos + 3:]
     return s
 

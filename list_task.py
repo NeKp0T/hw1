@@ -35,7 +35,6 @@ def linear_merge(lst1, lst2):
         ind[add_from] += 1
 
     for i in [0, 1]:
-        for j in lst[i][ind[i]:]:
-            ans.append(j)
+        ans.extend(lst[i][ind[i]:])
 
     return ans

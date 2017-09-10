@@ -50,7 +50,7 @@ def read_words(filename):
 def get_words(words):
     d = dict.fromkeys(words, 0)
     for i in words:
-        d[i] += 1
+        d[i.lower()] += 1
     return list(d.items())
 
 
@@ -60,7 +60,7 @@ def print_words(filename):
 
 def print_top(filename, quantity=20):
     print(*sorted(get_words(read_words(filename)),
-                  key=lambda x: -x[1])[:quantity], sep='\n')
+                  key=lambda x: x[1], reverse=True)[:quantity], sep='\n')
 
 
 # This basic command line argument parsing code is provided and
