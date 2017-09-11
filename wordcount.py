@@ -48,7 +48,7 @@ def read_words(filename):
 ###
 
 def get_words(words):
-    d = dict.fromkeys(words, 0)
+    d = dict.fromkeys([i.lower() for i in words], 0)
     for i in words:
         d[i.lower()] += 1
     return list(d.items())
